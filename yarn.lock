@@ -882,6 +882,13 @@
     readdirp "^2.2.1"
     upath "^1.1.1"
 
+"@prettier/plugin-ruby@^0.20.1":
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-0.20.1.tgz#5fc27541436914c34d9406e5d98908f0ba5ac290"
+  integrity sha512-SGIRV+T6dzWZN2xheT169Tjwb22K3rTrzUUqhJ436gUDz2hfI3OxxKNpfU/0j++HhhGECSwFlFjGBn5tB52+XQ==
+  dependencies:
+    prettier ">=1.10"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -2820,7 +2827,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier@^2.2.1:
+prettier@>=1.10, prettier@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
