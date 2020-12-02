@@ -20,9 +20,8 @@ puts "Input: #{num_valid(input)}"
 def is_valid_v2?(input)
   matches = input.match REGEX
   return false if !matches
-  x = matches[:password][matches[:min].to_i - 1] == matches[:letter] ? 1 : 0
-  y = matches[:password][matches[:max].to_i - 1] == matches[:letter] ? 1 : 0
-  x + y == 1
+  (matches[:password][matches[:min].to_i - 1] == matches[:letter]) ^
+    (matches[:password][matches[:max].to_i - 1] == matches[:letter])
 end
 
 def num_valid_v2(inputs)
