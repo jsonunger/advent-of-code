@@ -14,10 +14,8 @@ def num_valid(inputs)
   inputs.select { |i| is_valid?(i) }.count
 end
 
-puts 'Test Case:'
-puts num_valid(test_case)
-puts 'Input:'
-puts num_valid(input)
+puts "Test Case: #{num_valid(test_case)}"
+puts "Input: #{num_valid(input)}"
 
 def is_valid_v2?(input)
   matches = input.match REGEX
@@ -31,7 +29,5 @@ def num_valid_v2(inputs)
   inputs.select { |i| is_valid_v2?(i) }.count
 end
 
-puts 'Test Case:'
-puts num_valid_v2(test_case)
-puts 'Input:'
-puts num_valid_v2(input)
+puts "Test Case: #{num_valid_v2(test_case)}"
+puts "Input: #{num_valid_v2(input)}"
