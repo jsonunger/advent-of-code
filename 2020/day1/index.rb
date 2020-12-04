@@ -1,6 +1,7 @@
-test_case = [1721, 979, 366, 299, 675, 1456]
+require '../../rb_utils/load_file'
 
-input = File.open('./input.txt').readlines.map(&:to_i)
+test_case = load_file_lines('./test_case.txt').map(&:to_i)
+input = load_file_lines('./input.txt').map(&:to_i)
 
 def sum_2020(arr)
   num_iter = 0

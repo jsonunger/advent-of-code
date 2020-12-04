@@ -1,5 +1,7 @@
-test_case = ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc']
-input = File.open('./input.txt').readlines
+require '../../rb_utils/load_file'
+
+test_case = load_file_lines('./test_case.txt')
+input = load_file_lines('./input.txt')
 
 REGEX = /(?<min>\d+)-(?<max>\d+) (?<letter>\w): (?<password>\w+)/
 

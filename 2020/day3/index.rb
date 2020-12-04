@@ -1,17 +1,7 @@
-test_case = %w[
-  ..##.......
-  #...#...#..
-  .#....#..#.
-  ..#.#...#.#
-  .#...##..#.
-  ..#.##.....
-  .#.#.#....#
-  .#........#
-  #.##...#...
-  #...##....#
-  .#..#...#.#
-]
-input = File.open('./input.txt').readlines.map(&:chomp)
+require '../../rb_utils/load_file'
+
+test_case = load_file_lines('./test_case.txt')
+input = load_file_lines('./input.txt')
 
 def get_num_trees_hit(rows, x, y)
   curr_x = 0

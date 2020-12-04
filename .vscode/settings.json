@@ -9,5 +9,13 @@
   },
   "[ruby]": {
     "editor.formatOnSave": true
+  },
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.defaultFormatter": "shakram02.bash-beautify",
+    "editor.formatOnSave": true
+  },
+  "[plaintext]": {
+    "files.insertFinalNewline": false
   }
 }

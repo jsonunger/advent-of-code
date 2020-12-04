@@ -5,6 +5,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "build": ".bin/build-ruby.sh",
     "format": "prettier --write ./day*",
     "lint": "eslint ./day*",
     "start": "node .bin/createDay.js",
