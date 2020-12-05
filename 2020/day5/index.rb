@@ -37,3 +37,23 @@ puts
 all_seat_ids = (input_seat_ids.min...input_seat_ids.max).to_a
 
 puts all_seat_ids - input_seat_ids
+
+# SUPER OPTIMIZED
+
+puts
+puts 'SUPER OPTIMIZED'
+
+def get_seat_id(selection)
+  # https://docs.ruby-lang.org/en/2.5.0/String.html#method-i-tr
+  # https://docs.ruby-lang.org/en/2.5.0/String.html#method-i-to_i
+  selection.tr('FBLR', '0101').to_i(2)
+end
+
+input_seat_ids = input.map(&method(:get_seat_id))
+
+puts "Part 1: #{input_seat_ids.max}"
+puts "Part 2: #{
+       ((0..input_seat_ids.max).to_a - input_seat_ids).select do |x|
+         input_seat_ids.include?(x + 1) && input_seat_ids.include?(x - 1)
+       end
+     }"
