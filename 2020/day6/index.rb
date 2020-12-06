@@ -1,51 +1,41 @@
 require 'set'
-require('../../rb_utils/load_file')
 
-test_case = load_file_lines('./test_case.txt')
-input = load_file_lines('./input.txt')
+test_case = File.open('./test_case.txt').read.split(/\n{2}/)
+input = File.open('./input.txt').read.split(/\n{2}/)
 
-def part_1(rows)
-  passport_hashes =
-    rows.reduce([Set[]]) do |hashes, row|
-      if row == ''
-        hashes << Set[]
-        next hashes
-      end
-      row.split('').each { |val| hashes[-1].add(val) }
-      hashes
-    end
-  passport_hashes.reduce(0) { |sum, s| sum + s.size }
-end
+p test_case
 
-puts "Test Case: #{part_1(test_case)}"
-puts "Input: #{part_1(input)}"
-
-def part_2(rows)
-  passport_hashes =
-    rows.reduce([{}]) do |hashes, row|
-      if row == ''
-        hashes << {}
-        next hashes
-      end
-      hashes[-1][:num] ||= 0
-      hashes[-1][:num] += 1
-      row.split('').each do |val|
-        hashes[-1][val] ||= 0
-        hashes[-1][val] += 1
-      end
-      hashes
-    end
-  passport_hashes.reduce(0) do |sum, h|
-    size = h[:num]
-    h.keys.reduce(sum) do |inner_sum, key|
-      if key == :num || h[key] != size
-        inner_sum
-      else
-        inner_sum += 1
-      end
-    end
+def count_any_yes_answers(groups)
+  count = 0
+  groups.each do |group|
+    lookup = Set.new
+    people = group.split(/\n/)
+    people.each { |person| person.split('').each { |char| lookup.add(char) } }
+    count += lookup.size
   end
+  count
 end
 
-puts "Test Case: #{part_2(test_case)}"
-puts "Input: #{part_2(input)}"
+puts "Test Case: #{count_any_yes_answers(test_case)}"
+puts "Input: #{count_any_yes_answers(input)}"
+
+def count_all_yes_answers(groups)
+  count = 0
+  groups.each do |group|
+    lookup = {}
+    people = group.split(/\n/)
+    people.each do |person|
+      person.split('').each do |char|
+        lookup[char] = 0 if !lookup.has_key?(char)
+        lookup[char] += 1
+      end
+    end
+    sub_total = 0
+    lookup.values.each { |val| sub_total += 1 if val == people.size }
+    count += sub_total
+  end
+  count
+end
+
+puts "Test Case: #{count_all_yes_answers(test_case)}"
+puts "Input: #{count_all_yes_answers(input)}"
