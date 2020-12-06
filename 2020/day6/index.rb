@@ -1,38 +1,26 @@
 require 'set'
 
-test_case = File.open('./test_case.txt').read.split(/\n{2}/)
-input = File.open('./input.txt').read.split(/\n{2}/)
+test_case = File.open('./test_case.txt').read
+input = File.open('./input.txt').read
 
-p test_case
-
-def count_any_yes_answers(groups)
-  count = 0
-  groups.each do |group|
-    lookup = Set.new
-    people = group.split(/\n/)
-    people.each { |person| person.split('').each { |char| lookup.add(char) } }
-    count += lookup.size
-  end
-  count
+def count_any_yes_answers(data)
+  groups = data.split(/\n{2}/)
+  chars = groups.map { |group| Set.new(group.gsub(/\n/, '').split('')) }
+  chars.reduce(0) { |sum, group_chars| sum + group_chars.size }
 end
 
 puts "Test Case: #{count_any_yes_answers(test_case)}"
 puts "Input: #{count_any_yes_answers(input)}"
 
-def count_all_yes_answers(groups)
+def count_all_yes_answers(data)
+  groups = data.split(/\n{2}/)
   count = 0
   groups.each do |group|
-    lookup = {}
-    people = group.split(/\n/)
-    people.each do |person|
-      person.split('').each do |char|
-        lookup[char] = 0 if !lookup.has_key?(char)
-        lookup[char] += 1
-      end
+    answers = Set.new(group.gsub(/\n/, '').split(''))
+    group.split(/\n/).each do |person|
+      answers = answers & Set.new(person.split(''))
     end
-    sub_total = 0
-    lookup.values.each { |val| sub_total += 1 if val == people.size }
-    count += sub_total
+    count += answers.size
   end
   count
 end
