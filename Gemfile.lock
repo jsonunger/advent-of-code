@@ -4,7 +4,6 @@ GEM
     ast (2.4.1)
     backport (1.1.2)
     benchmark (0.1.0)
-    differ (0.1.2)
     e2mmap (0.1.0)
     jaro_winkler (1.5.4)
     maruku (0.7.3)
@@ -54,7 +53,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  differ (~> 0.1.2)
   solargraph (~> 0.39.17)
 
 BUNDLED WITH
