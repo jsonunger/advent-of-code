@@ -34,16 +34,20 @@ touch test_case.txt
 touch input.txt
 
 cat >> index.rb <<EOL
-require('../../rb_utils/load_file')
+test_case = File.open('./test_case.txt').readlines
+# input = File.open('./input.txt').readlines
 
-test_case = load_file_lines('./test_case.txt')
-# input = load_file_lines('./input.txt')
-
-def my_method(rows)
-    puts rows
+def run_part_1(lines)
+    lines
 end
 
+puts "Test Case: #{run_part_1(test_case)}"
+# puts "Input: #{run_part_2(input)}"
 
-puts "Test Case: #{my_method(test_case)}"
-# puts "Input: #{my_method(input)}"
+def run_part_2(lines)
+    lines
+end
+
+# puts "Test Case Part 2: #{run_part_2(test_case)}"
+# puts "Input Part 2: #{run_part_2(input)}
 EOL
