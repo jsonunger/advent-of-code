@@ -53,8 +53,8 @@ func part2(lines []string) (interface{}, error) {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("test_case.txt")
-	inputLines := utils.ReadFile("input.txt")
+	testCaseLines := utils.ReadFile("./$day_dir/test_case.txt")
+	inputLines := utils.ReadFile("./$day_dir/input.txt")
 
 	// PART 1
 	exRes1, err := part1(testCaseLines)

@@ -1,8 +1,6 @@
 package utils
 
 import (
-	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 
@@ -10,14 +8,8 @@ import (
 )
 
 func ReadFile(fileName string) []string {
-	dir, err := os.Getwd()
+	data, err := os.ReadFile(fileName)
 	PanicWithMsg(err, "getting working directory")
-	year, _ := os.LookupEnv("YEAR")
-	day, _ := os.LookupEnv("DAY")
-
-	fullPath := fmt.Sprintf("%s/%s/day%s/%s", dir, year, day, fileName)
-	data, err := ioutil.ReadFile(fullPath)
-	PanicWithMsg(err, fmt.Sprintf("unable to read %s", fullPath))
 
 	lines := strings.Split(string(data), "\n")
 	trimmedLines := make([]string, len(lines))
