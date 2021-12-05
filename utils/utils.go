@@ -2,6 +2,7 @@ package utils
 
 import (
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/pkg/errors"
@@ -24,4 +25,14 @@ func PanicWithMsg(err error, message string) {
 	if wrapped != nil {
 		panic(wrapped)
 	}
+}
+
+func ConvertStringsToInts(strs []string) []int {
+	ints := make([]int, len(strs))
+	for i, str := range strs {
+		val, err := strconv.Atoi(str)
+		PanicWithMsg(err, "converting "+str)
+		ints[i] = val
+	}
+	return ints
 }
