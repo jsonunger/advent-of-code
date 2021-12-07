@@ -7,11 +7,6 @@ import (
 	"github.com/jsonunger/advent-of-code/utils"
 )
 
-type counts struct {
-	Zero int
-	One  int
-}
-
 func part1(lines []string) interface{} {
 	gammaStr, epsilonStr := "", ""
 	for i := 0; i < len(lines[0]); i++ {
@@ -19,9 +14,9 @@ func part1(lines []string) interface{} {
 		for _, line := range lines {
 			char := string(line[i])
 			if char == "0" {
-				countZeros += 1
+				countZeros++
 			} else {
-				countOnes += 1
+				countOnes++
 			}
 		}
 
@@ -62,9 +57,9 @@ func part2(lines []string) interface{} {
 		for _, line := range oxyLines {
 			char := string(line[i])
 			if char == "0" {
-				countZeros += 1
+				countZeros++
 			} else {
-				countOnes += 1
+				countOnes++
 			}
 		}
 		oxyLines = filter(oxyLines, func(line string) bool {
@@ -79,7 +74,6 @@ func part2(lines []string) interface{} {
 			}
 			return false
 		})
-
 	}
 	oxy, err := strconv.ParseInt(oxyLines[0], 2, 64)
 	utils.PanicWithMsg(err, "converting oxy")
@@ -94,9 +88,9 @@ func part2(lines []string) interface{} {
 		for _, line := range co2Lines {
 			char := string(line[i])
 			if char == "0" {
-				countZeros += 1
+				countZeros++
 			} else {
-				countOnes += 1
+				countOnes++
 			}
 		}
 		co2Lines = filter(co2Lines, func(line string) bool {
@@ -111,7 +105,6 @@ func part2(lines []string) interface{} {
 			}
 			return false
 		})
-
 	}
 
 	co2, err := strconv.ParseInt(co2Lines[0], 2, 64)
@@ -125,8 +118,8 @@ func main() {
 	inputLines := utils.ReadFile("./2021/day3/input.txt")
 
 	// PART 1
-	// fmt.Printf("PART 1 EXAMPLE: %v\n", part1(testCaseLines))
-	// fmt.Printf("PART 1 RESULT: %v\n", part1(inputLines))
+	fmt.Printf("PART 1 EXAMPLE: %v\n", part1(testCaseLines))
+	fmt.Printf("PART 1 RESULT: %v\n", part1(inputLines))
 
 	// // PART 2
 	fmt.Printf("PART 2 EXAMPLE: %v\n", part2(testCaseLines))

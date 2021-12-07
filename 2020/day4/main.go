@@ -43,7 +43,7 @@ func part1(lines []string) interface{} {
 			}
 		}
 		if valid {
-			numValid += 1
+			numValid++
 		}
 	}
 
@@ -98,7 +98,7 @@ func part2(lines []string) interface{} {
 			}
 		}
 		if valid {
-			numValid += 1
+			numValid++
 		}
 	}
 

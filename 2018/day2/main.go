@@ -4,32 +4,33 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/jsonunger/advent-of-code/utils"
 	"github.com/pkg/errors"
+
+	"github.com/jsonunger/advent-of-code/utils"
 )
 
-func part1(lines []string) (interface{}, error) {
+func part1(lines []string) int {
 	doubles := 0
 	triples := 0
 	for _, line := range lines {
 		double, triple := false, false
 		chars := make(map[string]int)
 		for _, char := range strings.Split(line, "") {
-			chars[char] += 1
+			chars[char]++
 		}
 		for _, count := range chars {
 			if count == 3 && !triple {
 				triple = true
-				triples += 1
+				triples++
 				continue
 			}
 			if count == 2 && !double {
 				double = true
-				doubles += 1
+				doubles++
 			}
 		}
 	}
-	return doubles * triples, nil
+	return doubles * triples
 }
 
 func part2(lines []string) (interface{}, error) {
@@ -39,7 +40,7 @@ func part2(lines []string) (interface{}, error) {
 				continue
 			}
 			diffs := make([]int, 0, len(lineI))
-			for idx, _ := range strings.Split(lineI, "") {
+			for idx := range strings.Split(lineI, "") {
 				if lineI[idx] != lineJ[idx] {
 					diffs = append(diffs, idx)
 				}
@@ -54,17 +55,15 @@ func part2(lines []string) (interface{}, error) {
 }
 
 func main() {
-	// testCaseLines := utils.ReadFile("test_case.txt")
+	testCaseLines := utils.ReadFile("test_case.txt")
 	inputLines := utils.ReadFile("input.txt")
 
-	// // PART 1
-	// exRes1, err := part1(testCaseLines)
-	// utils.PanicWithMsg(err, "part 1 example")
-	// fmt.Printf("PART 1 EXAMPLE: %v\n", exRes1)
+	// PART 1
+	exRes1 := part1(testCaseLines)
+	fmt.Printf("PART 1 EXAMPLE: %v\n", exRes1)
 
-	// res1, err := part1(inputLines)
-	// utils.PanicWithMsg(err, "part 1")
-	// fmt.Printf("PART 1 RESULT: %v\n", res1)
+	res1 := part1(inputLines)
+	fmt.Printf("PART 1 RESULT: %v\n", res1)
 
 	testCase2Lines := utils.ReadFile("test_case2.txt")
 

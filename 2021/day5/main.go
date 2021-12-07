@@ -16,11 +16,7 @@ func maxInt(gridVal int, vals ...int) int {
 	return gridVal
 }
 
-type VentGrid struct {
-	vents []Vent
-	x     int
-	y     int
-}
+type VentGrid []Vent
 
 type Vent []int
 
@@ -42,15 +38,15 @@ func (v Vent) Points() [][2]int {
 		}
 
 		if v[0] > v[2] {
-			x -= 1
+			x--
 		} else if v[0] < v[2] {
-			x += 1
+			x++
 		}
 
 		if v[1] > v[3] {
-			y -= 1
+			y--
 		} else if v[1] < v[3] {
-			y += 1
+			y++
 		}
 	}
 
@@ -64,7 +60,7 @@ func (m VentMap) Sum() int {
 	for _, row := range m {
 		for _, point := range row {
 			if point >= 2 {
-				sum += 1
+				sum++
 			}
 		}
 	}
@@ -76,14 +72,13 @@ func buildVentGridAndMap(lines []string) (VentGrid, VentMap) {
 	ventGrid := VentGrid{}
 	x, y := 0, 0
 	for _, line := range lines {
-		var vent Vent
-		vent = utils.ConvertStringsToInts(strings.FieldsFunc(line, func(r rune) bool {
+		var vent Vent = utils.ConvertStringsToInts(strings.FieldsFunc(line, func(r rune) bool {
 			return strings.ContainsRune(",-> ", r)
 		}))
 
 		x = maxInt(x, vent[0], vent[2])
 		y = maxInt(y, vent[1], vent[3])
-		ventGrid.vents = append(ventGrid.vents, vent)
+		ventGrid = append(ventGrid, vent)
 	}
 
 	var ventMap VentMap
@@ -101,12 +96,12 @@ func buildVentGridAndMap(lines []string) (VentGrid, VentMap) {
 func part1(lines []string) interface{} {
 	ventGrid, ventMap := buildVentGridAndMap(lines)
 
-	for _, vent := range ventGrid.vents {
+	for _, vent := range ventGrid {
 		if !vent.IsStraight() {
 			continue
 		}
 		for _, point := range vent.Points() {
-			ventMap[point[1]][point[0]] += 1
+			ventMap[point[1]][point[0]]++
 		}
 	}
 
@@ -116,9 +111,9 @@ func part1(lines []string) interface{} {
 func part2(lines []string) interface{} {
 	ventGrid, ventMap := buildVentGridAndMap(lines)
 
-	for _, vent := range ventGrid.vents {
+	for _, vent := range ventGrid {
 		for _, point := range vent.Points() {
-			ventMap[point[1]][point[0]] += 1
+			ventMap[point[1]][point[0]]++
 		}
 	}
 

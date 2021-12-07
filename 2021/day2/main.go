@@ -8,7 +8,7 @@ import (
 	"github.com/jsonunger/advent-of-code/utils"
 )
 
-func part1(lines []string) (interface{}, error) {
+func part1(lines []string) int {
 	horizontal, depth := 0, 0
 	for _, line := range lines {
 		split := strings.Split(line, " ")
@@ -26,10 +26,10 @@ func part1(lines []string) (interface{}, error) {
 			depth -= value
 		}
 	}
-	return horizontal * depth, nil
+	return horizontal * depth
 }
 
-func part2(lines []string) (interface{}, error) {
+func part2(lines []string) int {
 	horizontal, depth, aim := 0, 0, 0
 	for _, line := range lines {
 		split := strings.Split(line, " ")
@@ -48,7 +48,7 @@ func part2(lines []string) (interface{}, error) {
 			aim -= value
 		}
 	}
-	return horizontal * depth, nil
+	return horizontal * depth
 }
 
 func main() {
@@ -56,20 +56,16 @@ func main() {
 	inputLines := utils.ReadFile("./2021/day2/input.txt")
 
 	// PART 1
-	exRes1, err := part1(testCaseLines)
-	utils.PanicWithMsg(err, "part 1 example")
+	exRes1 := part1(testCaseLines)
 	fmt.Printf("PART 1 EXAMPLE: %v\n", exRes1)
 
-	res1, err := part1(inputLines)
-	utils.PanicWithMsg(err, "part 1")
+	res1 := part1(inputLines)
 	fmt.Printf("PART 1 RESULT: %v\n", res1)
 
 	// PART 2
-	exRes2, err := part2(testCaseLines)
-	utils.PanicWithMsg(err, "part 2 example")
+	exRes2 := part2(testCaseLines)
 	fmt.Printf("PART 2 EXAMPLE: %v\n", exRes2)
 
-	res2, err := part2(inputLines)
-	utils.PanicWithMsg(err, "part 2")
+	res2 := part2(inputLines)
 	fmt.Printf("PART 2 RESULT: %v\n", res2)
 }

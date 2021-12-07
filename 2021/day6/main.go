@@ -13,7 +13,7 @@ func runner(line string, days int) interface{} {
 	fishes := map[int]int{0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
 
 	for _, val := range startingFishTimers {
-		fishes[val] += 1
+		fishes[val]++
 	}
 
 	for i := 0; i < days; i++ {

@@ -7,7 +7,7 @@ import (
 	"github.com/jsonunger/advent-of-code/utils"
 )
 
-func part1(lines []string) (interface{}, error) {
+func part1(lines []string) int {
 	frequency := 0
 	for _, change := range lines {
 		val, err := strconv.Atoi(change)
@@ -15,10 +15,10 @@ func part1(lines []string) (interface{}, error) {
 		frequency += val
 	}
 
-	return frequency, nil
+	return frequency
 }
 
-func part2(lines []string) (interface{}, error) {
+func part2(lines []string) int {
 	frequency := 0
 	pastFreqs := map[int]bool{0: true}
 	i := 0
@@ -30,10 +30,10 @@ func part2(lines []string) (interface{}, error) {
 		frequency += val
 		exists := pastFreqs[frequency]
 		if exists {
-			return frequency, nil
+			return frequency
 		}
 		pastFreqs[frequency] = true
-		i += 1
+		i++
 	}
 }
 
@@ -41,21 +41,17 @@ func main() {
 	testCaseLines := utils.ReadFile("test_case.txt")
 	inputLines := utils.ReadFile("input.txt")
 
-	// // PART 1
-	// exRes1, err := part1(testCaseLines)
-	// utils.PanicWithMsg(err, "part 1 example")
-	// fmt.Printf("PART 1 EXAMPLE: %v\n", exRes1)
+	// PART 1
+	exRes1 := part1(testCaseLines)
+	fmt.Printf("PART 1 EXAMPLE: %v\n", exRes1)
 
-	// res1, err := part1(inputLines)
-	// utils.PanicWithMsg(err, "part 1")
-	// fmt.Printf("PART 1 RESULT: %v\n", res1)
+	res1 := part1(inputLines)
+	fmt.Printf("PART 1 RESULT: %v\n", res1)
 
 	// PART 2
-	exRes2, err := part2(testCaseLines)
-	utils.PanicWithMsg(err, "part 2 example")
+	exRes2 := part2(testCaseLines)
 	fmt.Printf("PART 2 EXAMPLE: %v\n", exRes2)
 
-	res2, err := part2(inputLines)
-	utils.PanicWithMsg(err, "part 2")
+	res2 := part2(inputLines)
 	fmt.Printf("PART 2 RESULT: %v\n", res2)
 }

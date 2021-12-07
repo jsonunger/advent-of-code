@@ -15,7 +15,7 @@ func part1(lines []string, slopeX, slopeY int) int {
 			break
 		}
 		if lines[y][x%rowLength] == []byte("#")[0] {
-			numTrees += 1
+			numTrees++
 		}
 		x += slopeX
 		y += slopeY

@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"strings"
 
 	"github.com/jsonunger/advent-of-code/utils"
@@ -26,8 +25,6 @@ func (b *BingoBoard) Check(draw int) {
 		}
 	}
 }
-
-var inf = int(math.Inf(1))
 
 func (b *BingoBoard) Winner() bool {
 	rowResults, colResults := [5]bool{true, true, true, true, true}, [5]bool{true, true, true, true, true}
@@ -107,7 +104,7 @@ func lastBoard(boards []*BingoBoard) bool {
 	sum := 0
 	for _, board := range boards {
 		if board == nil {
-			sum += 1
+			sum++
 		}
 	}
 	return sum == len(boards)-1

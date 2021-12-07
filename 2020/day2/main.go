@@ -35,7 +35,7 @@ func part1(lines []string) interface{} {
 		rule := NewRule(line)
 		charCount := strings.Count(rule.password, rule.char)
 		if charCount >= rule.min && charCount <= rule.max {
-			sum += 1
+			sum++
 		}
 	}
 	return sum
@@ -48,7 +48,7 @@ func part2(lines []string) interface{} {
 		minEquals := []rune(rule.password)[rule.min-1] == []rune(rule.char)[0]
 		maxEquals := []rune(rule.password)[rule.max-1] == []rune(rule.char)[0]
 		if minEquals != maxEquals {
-			sum += 1
+			sum++
 		}
 	}
 	return sum
