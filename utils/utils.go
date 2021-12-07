@@ -27,12 +27,16 @@ func PanicWithMsg(err error, message string) {
 	}
 }
 
+func ConvertStringToInt(str string) int {
+	val, err := strconv.Atoi(str)
+	PanicWithMsg(err, "converting "+str)
+	return val
+}
+
 func ConvertStringsToInts(strs []string) []int {
 	ints := make([]int, len(strs))
 	for i, str := range strs {
-		val, err := strconv.Atoi(str)
-		PanicWithMsg(err, "converting "+str)
-		ints[i] = val
+		ints[i] = ConvertStringToInt(str)
 	}
 	return ints
 }
