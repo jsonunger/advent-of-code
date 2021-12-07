@@ -55,8 +55,8 @@ func part2(lines []string) (interface{}, error) {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("test_case.txt")
-	inputLines := utils.ReadFile("input.txt")
+	testCaseLines := utils.ReadLines("test_case.txt")
+	inputLines := utils.ReadLines("input.txt")
 
 	// PART 1
 	exRes1 := part1(testCaseLines)
@@ -65,7 +65,7 @@ func main() {
 	res1 := part1(inputLines)
 	fmt.Printf("PART 1 RESULT: %v\n", res1)
 
-	testCase2Lines := utils.ReadFile("test_case2.txt")
+	testCase2Lines := utils.ReadLines("test_case2.txt")
 
 	// PART 2
 	exRes2, err := part2(testCase2Lines)

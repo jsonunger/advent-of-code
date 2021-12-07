@@ -52,8 +52,8 @@ func part2(lines []string) int {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("./2021/day2/test_case.txt")
-	inputLines := utils.ReadFile("./2021/day2/input.txt")
+	testCaseLines := utils.ReadLines("./2021/day2/test_case.txt")
+	inputLines := utils.ReadLines("./2021/day2/input.txt")
 
 	// PART 1
 	exRes1 := part1(testCaseLines)

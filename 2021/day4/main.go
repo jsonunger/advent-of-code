@@ -138,8 +138,8 @@ func part2(lines []string) interface{} {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("./2021/day4/test_case.txt")
-	inputLines := utils.ReadFile("./2021/day4/input.txt")
+	testCaseLines := utils.ReadLines("./2021/day4/test_case.txt")
+	inputLines := utils.ReadLines("./2021/day4/input.txt")
 
 	// PART 1
 	fmt.Printf("PART 1 EXAMPLE: %v\n", part1(testCaseLines))

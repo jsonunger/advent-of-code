@@ -38,8 +38,8 @@ func part2(lines []string) int {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("test_case.txt")
-	inputLines := utils.ReadFile("input.txt")
+	testCaseLines := utils.ReadLines("test_case.txt")
+	inputLines := utils.ReadLines("input.txt")
 
 	// PART 1
 	exRes1 := part1(testCaseLines)

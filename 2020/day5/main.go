@@ -50,8 +50,8 @@ func part2(lines []string) float64 {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("./2020/day5/test_case.txt")
-	inputLines := utils.ReadFile("./2020/day5/input.txt")
+	testCaseLines := utils.ReadLines("./2020/day5/test_case.txt")
+	inputLines := utils.ReadLines("./2020/day5/input.txt")
 
 	// PART 1
 	fmt.Printf("PART 1 EXAMPLE: %v\n", part1(testCaseLines))

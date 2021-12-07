@@ -29,14 +29,14 @@ func runner(line string, days int) interface{} {
 }
 
 func main() {
-	testCaseLines := utils.ReadFile("./2021/day6/test_case.txt")
-	inputLines := utils.ReadFile("./2021/day6/input.txt")
+	testCase := utils.ReadFile("./2021/day6/test_case.txt")
+	input := utils.ReadFile("./2021/day6/input.txt")
 
 	// PART 1
-	fmt.Printf("PART 1 EXAMPLE: %v\n", runner(testCaseLines[0], 18))
-	fmt.Printf("PART 1 RESULT: %v\n", runner(inputLines[0], 80))
+	fmt.Printf("PART 1 EXAMPLE: %v\n", runner(testCase, 18))
+	fmt.Printf("PART 1 RESULT: %v\n", runner(input, 80))
 
 	// // PART 2
-	fmt.Printf("PART 2 EXAMPLE: %v\n", runner(testCaseLines[0], 256))
-	fmt.Printf("PART 2 RESULT: %v\n", runner(inputLines[0], 256))
+	fmt.Printf("PART 2 EXAMPLE: %v\n", runner(testCase, 256))
+	fmt.Printf("PART 2 RESULT: %v\n", runner(input, 256))
 }
