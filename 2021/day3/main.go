@@ -45,10 +45,10 @@ func filter(s []string, callback func(string) bool) []string {
 	return filtered
 }
 
-func part2(lines []string) interface{} {
-	numChars := len(lines[0])
+func calculateOxy(lines []string, numChars int) int64 {
 	oxyLines := make([]string, len(lines))
 	copy(oxyLines, lines)
+
 	for i := 0; i < numChars; i++ {
 		if len(oxyLines) == 1 {
 			break
@@ -78,6 +78,10 @@ func part2(lines []string) interface{} {
 	oxy, err := strconv.ParseInt(oxyLines[0], 2, 64)
 	utils.PanicWithMsg(err, "converting oxy")
 
+	return oxy
+}
+
+func calculateCO2(lines []string, numChars int) int64 {
 	co2Lines := make([]string, len(lines))
 	copy(co2Lines, lines)
 	for i := 0; i < numChars; i++ {
@@ -108,7 +112,15 @@ func part2(lines []string) interface{} {
 	}
 
 	co2, err := strconv.ParseInt(co2Lines[0], 2, 64)
-	utils.PanicWithMsg(err, "converting oxy")
+	utils.PanicWithMsg(err, "converting co2")
+
+	return co2
+}
+
+func part2(lines []string) interface{} {
+	numChars := len(lines[0])
+	oxy := calculateOxy(lines, numChars)
+	co2 := calculateCO2(lines, numChars)
 
 	return oxy * co2
 }

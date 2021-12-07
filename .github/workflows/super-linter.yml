@@ -29,4 +29,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IGNORE_GITIGNORED_FILES: true
           JAVASCRIPT_DEFAULT_STYLE: prettier
-          
+          VALIDATE_JSCPD: false
