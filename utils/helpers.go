@@ -18,3 +18,21 @@ func ConvertStringToInt(str string) int {
 	PanicWithMsg(err, "converting "+str)
 	return val
 }
+
+func ChunkString(s string, chunkSize int) []string {
+	if chunkSize <= 0 {
+		return []string{s}
+	}
+
+	runes := []rune(s) // Convert string to a slice of runes
+	var chunks []string
+
+	for i := 0; i < len(runes); i += chunkSize {
+		end := i + chunkSize
+		if end > len(runes) {
+			end = len(runes)
+		}
+		chunks = append(chunks, string(runes[i:end]))
+	}
+	return chunks
+}
